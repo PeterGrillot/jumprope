@@ -24,6 +24,10 @@ const StyledTimer = styled.div`
 	font-size: 10rem;
 	color: var(--blue);
 	transition: all 1s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 	${(props: StyledProps) =>
 		props.level === 'danger' &&
 		`
@@ -35,7 +39,7 @@ const StyledTimer = styled.div`
     color: var(--purple);
   `};
 	.logo--animation {
-		animation: jump 2s infinite linear;
+		animation: jump 1s infinite linear;
 	}
 
 	@keyframes jump {
