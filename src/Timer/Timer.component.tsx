@@ -5,8 +5,8 @@ import { standardJob } from '../constants/jobs';
 
 import { Cluster } from '../Cluster/Cluster.component';
 import { Button } from '../Button/Button.component';
-
-import jumprope from '../jumprope.svg';
+import { Logo } from '../Logo/Logo.component';
+import { Sets } from '../Sets/Sets.component';
 
 interface StyledProps {
 	level: string;
@@ -15,19 +15,32 @@ interface StyledProps {
 type Props = {};
 type State = {
 	timer: number;
-	step: number;
+	rep: number;
+	set: Array<string>;
 	engaged: boolean;
+};
+
+const DEFAULT_STATE = {
+	timer: standardJob[0].timer,
+	rep: 0,
+	set: [],
+	engaged: false
 };
 
 const StyledTimer = styled.div`
 	text-align: center;
 	font-size: 10rem;
-	color: var(--blue);
+	color: var(--green);
 	transition: all 1s;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	small {
+		font-size: 1.6rem;
+		displayl block;
+		margin: 2rem 0;
+	}
 	${(props: StyledProps) =>
 		props.level === 'danger' &&
 		`
@@ -36,20 +49,8 @@ const StyledTimer = styled.div`
 	${(props: StyledProps) =>
 		props.level === 'rest' &&
 		`
-    color: var(--purple);
-  `};
-	.logo--animation {
-		animation: jump 1s infinite linear;
-	}
-
-	@keyframes jump {
-		from {
-			transform: rotateX(0deg);
-		}
-		to {
-			transform: rotateX(360deg);
-		}
-	}
+    color: var(--blue);
+	`};
 `;
 
 const getLevel = (time: number, status: string): string => {
@@ -59,78 +60,93 @@ const getLevel = (time: number, status: string): string => {
 };
 
 export class Timer extends React.Component<Props, State> {
-	private timerID: any; // stops a warning in DidMount
+	private timerID: any;
+	private videoElement: any;
+	private audioElement: any;
+	state = DEFAULT_STATE;
 
-	state = {
-		timer: standardJob[0].timer,
-		step: 0,
-		engaged: false
-	};
-
+	componentDidMount() {
+		this.videoElement = document.getElementById('NOOP_VIDEO');
+		this.audioElement = document.getElementById('BELL_RING_AUDIO');
+	}
 	componentWillUnmount() {
 		clearInterval(this.timerID);
 	}
 
-	stopTimer = () => {
-		this.pauseTimer();
-		this.setState((previousState) => ({
-			timer: standardJob[0].timer,
-			step: 0
-		}));
-	};
 	startTimer = () => {
-		if (document) {
-			document.getElementsByTagName('video')[0].play();
-		}
+		this.videoElement.play();
 		this.setState({ engaged: true });
 		this.timerID = setInterval(() => this.tick(), 1000);
-		if (this.state.step === standardJob.length - 1) {
-			this.stopTimer();
-		}
 	};
 
 	pauseTimer = () =>
 		this.setState({ engaged: false }, () => {
 			if (document) {
-				document.getElementsByTagName('video')[0].pause();
+				this.videoElement.pause();
 			}
 			clearInterval(this.timerID);
 		});
 
-	resetTimer = () => {
+	nextRep = () => {
 		this.pauseTimer();
-		if (this.state.step !== standardJob.length - 1) {
+		if (this.state.rep !== standardJob.length - 1) {
 			this.setState(
 				(previousState) => ({
-					timer: standardJob[previousState.step + 1].timer,
-					step: previousState.step + 1
+					timer: standardJob[previousState.rep + 1].timer,
+					rep: previousState.rep + 1
 				}),
 				this.startTimer
 			);
+			return;
 		}
+		this.setComplete();
+	};
+
+	setComplete = () => {
+		this.setState({
+			timer: standardJob[0].timer,
+			rep: 0,
+			engaged: false,
+			set: [ ...this.state.set, '*' ]
+		});
 	};
 
 	tick = () => {
-		if (this.state.timer === 0) {
-			this.resetTimer();
-			return false;
+		this.setState(
+			{
+				timer: this.state.timer - 1
+			},
+			() => {
+				if (this.state.timer === 0) {
+					this.audioElement.play();
+					this.nextRep();
+					return false;
+				}
+			}
+		);
+	};
+
+	getNext = () => {
+		const nextrep = this.state.rep + 1;
+		if (!standardJob[nextrep]) {
+			return 'Done!';
 		}
-		this.setState((previousState) => ({
-			timer: previousState.timer - 1
-		}));
+		return standardJob[nextrep].name;
 	};
 
 	render() {
 		return (
-			<StyledTimer level={getLevel(this.state.timer, standardJob[this.state.step].name)}>
+			<StyledTimer level={getLevel(this.state.timer, standardJob[this.state.rep].name)}>
+				<Sets set={this.state.set} />
+				<Logo active={this.state.engaged} />
 				{this.state.engaged ? (
 					<React.Fragment>
-						<Cluster timer={this.state.timer} name={standardJob[this.state.step].name} />
+						<Cluster timer={this.state.timer} name={standardJob[this.state.rep].name} />
+						<small>Up Next: {this.getNext()}</small>
 						<Button onClick={this.pauseTimer}>Pause</Button>
 					</React.Fragment>
 				) : (
 					<React.Fragment>
-						<img alt="logo" className="logo--animation" src={jumprope} />
 						<Button onClick={this.startTimer} disabled={this.state.engaged}>
 							Start
 						</Button>

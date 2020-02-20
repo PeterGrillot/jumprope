@@ -3,39 +3,45 @@ export interface Job {
 	name: string;
 }
 
-export const rest: Job = {
-	name: 'Rest',
-	timer: 10
+const ready: Job = {
+	name: 'Ready',
+	timer: 5
 };
-export const longRest: Job = {
+
+const rest: Job = {
+	name: 'Rest',
+	timer: 1
+};
+const longRest: Job = {
 	name: 'Long Rest',
-	timer: 60 + rest.timer
+	timer: 6 + rest.timer
 };
 
 export const standardJob: Job[] = [
+	{ ...ready },
 	{
 		name: 'Standard',
-		timer: 30
+		timer: 3
 	},
-	{ ...rest },
-	{
-		name: 'Switch Foot',
-		timer: 30
-	},
-	{ ...rest },
-	{
-		name: 'High Knee',
-		timer: 30
-	},
-	{ ...rest },
-	{
-		name: 'Twist',
-		timer: 30
-	},
-	{ ...rest },
+	// { ...rest },
+	// {
+	// 	name: 'Switch Foot',
+	// 	timer: 3
+	// },
+	// { ...rest },
+	// {
+	// 	name: 'High Knee',
+	// 	timer: 3
+	// },
+	// { ...rest },
+	// {
+	// 	name: 'Twist',
+	// 	timer: 3
+	// },
+	// { ...rest },
 	{
 		name: 'Skip Jump',
-		timer: 30
+		timer: 3
 	},
 	{ ...longRest }
 ];

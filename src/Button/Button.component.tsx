@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
 	border-radius: .6rem;
-	font-size: 3rem;
+	font-size: 2.2rem;
 	padding: 0.2rem 1rem;
 	border: none;
 	background: var(--purple);
