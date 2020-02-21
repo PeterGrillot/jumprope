@@ -2,7 +2,7 @@
 	"name": "jumprope",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "http://petergrillot.github.io/jumprope",
+	"homepage": "https://petergrillot.github.io/jumprope",
 	"dependencies": {
 		"@babel/core": "7.8.4",
 		"@svgr/webpack": "4.3.3",
