@@ -1,21 +1,22 @@
+/* Variables */
 :root {
-	--blue: #a4ffff;
-	--red: #db3e30;
-	--purple: #c569ff;
-	--green: #a8ff75;
+	--blue: #21b8b8;
+	--red: #ad4b42;
+	--purple: #65268d;
+	--green: #60b42f;
 }
-
+/* Base */
 body,
 html {
 	margin: 0;
+	height: 100%;
 	font-family: 'B612 Mono', sans-serif;
 }
+
+#root {
+	height: 100%;
+}
+
 button {
 	font-family: 'B612 Mono', sans-serif;
-}
-.App {
-	height: 90vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
