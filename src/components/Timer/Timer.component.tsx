@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { standardJob } from '../constants/jobs';
+import { standardJob } from '../../constants/jobs';
 
 import { Cluster } from '../Cluster/Cluster.component';
 import { Button } from '../Button/Button.component';
