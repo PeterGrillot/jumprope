@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "35c44d7b3b903225877691dd894bb982",
+    "revision": "5cd8c1dceae3c78b4d3231a67aa994dd",
     "url": "/jumprope/index.html"
   },
   {
-    "revision": "17aa44892c50cd6112f1",
-    "url": "/jumprope/static/css/main.71ab10c6.chunk.css"
+    "revision": "b03cd0fe65bcd4329686",
+    "url": "/jumprope/static/css/main.dec3a08b.chunk.css"
   },
   {
     "revision": "2db27ccfae6c5c6944e8",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jumprope/static/js/2.0f3e854f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "17aa44892c50cd6112f1",
-    "url": "/jumprope/static/js/main.6b952821.chunk.js"
+    "revision": "b03cd0fe65bcd4329686",
+    "url": "/jumprope/static/js/main.12768e5d.chunk.js"
   },
   {
     "revision": "a9c8b5422a96961cbef5",

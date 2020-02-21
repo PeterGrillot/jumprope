@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/jumprope/static/css/main.71ab10c6.chunk.css",
-    "main.js": "/jumprope/static/js/main.6b952821.chunk.js",
-    "main.js.map": "/jumprope/static/js/main.6b952821.chunk.js.map",
+    "main.css": "/jumprope/static/css/main.dec3a08b.chunk.css",
+    "main.js": "/jumprope/static/js/main.12768e5d.chunk.js",
+    "main.js.map": "/jumprope/static/js/main.12768e5d.chunk.js.map",
     "runtime-main.js": "/jumprope/static/js/runtime-main.7666d85f.js",
     "runtime-main.js.map": "/jumprope/static/js/runtime-main.7666d85f.js.map",
     "static/js/2.0f3e854f.chunk.js": "/jumprope/static/js/2.0f3e854f.chunk.js",
     "static/js/2.0f3e854f.chunk.js.map": "/jumprope/static/js/2.0f3e854f.chunk.js.map",
     "index.html": "/jumprope/index.html",
-    "precache-manifest.de90000b777a02bc84ca06ce32ca351b.js": "/jumprope/precache-manifest.de90000b777a02bc84ca06ce32ca351b.js",
+    "precache-manifest.0ca00712780f6858f4e6b70e9017b228.js": "/jumprope/precache-manifest.0ca00712780f6858f4e6b70e9017b228.js",
     "service-worker.js": "/jumprope/service-worker.js",
-    "static/css/main.71ab10c6.chunk.css.map": "/jumprope/static/css/main.71ab10c6.chunk.css.map",
+    "static/css/main.dec3a08b.chunk.css.map": "/jumprope/static/css/main.dec3a08b.chunk.css.map",
     "static/js/2.0f3e854f.chunk.js.LICENSE.txt": "/jumprope/static/js/2.0f3e854f.chunk.js.LICENSE.txt",
     "static/media/jumprope.svg": "/jumprope/static/media/jumprope.540ae400.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.7666d85f.js",
     "static/js/2.0f3e854f.chunk.js",
-    "static/css/main.71ab10c6.chunk.css",
-    "static/js/main.6b952821.chunk.js"
+    "static/css/main.dec3a08b.chunk.css",
+    "static/js/main.12768e5d.chunk.js"
   ]
 }
