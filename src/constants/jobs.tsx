@@ -10,38 +10,38 @@ const ready: Job = {
 
 const rest: Job = {
 	name: 'Rest',
-	timer: 1
+	timer: 10
 };
 const longRest: Job = {
 	name: 'Long Rest',
-	timer: 6 + rest.timer
+	timer: 60 + rest.timer
 };
 
 export const standardJob: Job[] = [
 	{ ...ready },
 	{
 		name: 'Standard',
-		timer: 3
+		timer: 30
 	},
-	// { ...rest },
-	// {
-	// 	name: 'Switch Foot',
-	// 	timer: 3
-	// },
-	// { ...rest },
-	// {
-	// 	name: 'High Knee',
-	// 	timer: 3
-	// },
-	// { ...rest },
-	// {
-	// 	name: 'Twist',
-	// 	timer: 3
-	// },
-	// { ...rest },
+	{ ...rest },
+	{
+		name: 'Switch Foot',
+		timer: 30
+	},
+	{ ...rest },
+	{
+		name: 'High Knee',
+		timer: 30
+	},
+	{ ...rest },
+	{
+		name: 'Twist',
+		timer: 30
+	},
+	{ ...rest },
 	{
 		name: 'Skip Jump',
-		timer: 3
+		timer: 30
 	},
 	{ ...longRest }
 ];
