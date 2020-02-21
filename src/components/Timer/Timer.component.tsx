@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { standardJob } from '../constants/jobs';
+import { standardJob } from '../../constants/jobs';
 
 import { Cluster } from '../Cluster/Cluster.component';
 import { Button } from '../Button/Button.component';
@@ -67,7 +67,7 @@ export class Timer extends React.Component<Props, State> {
 
 	componentDidMount() {
 		this.videoElement = document.getElementById('NOOP_VIDEO');
-		this.audioElement = document.getElementById('BELL_RING_AUDIO');
+		this.audioElement = document.getElementById('BELL_COUNT_AUDIO');
 	}
 	componentWillUnmount() {
 		clearInterval(this.timerID);
@@ -117,10 +117,13 @@ export class Timer extends React.Component<Props, State> {
 				timer: this.state.timer - 1
 			},
 			() => {
-				if (this.state.timer === 0) {
+				if (this.state.timer === 3) {
 					this.audioElement.play();
+					return;
+				}
+				if (this.state.timer === 0) {
 					this.nextRep();
-					return false;
+					return;
 				}
 			}
 		);

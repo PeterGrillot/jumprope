@@ -1,12 +1,20 @@
 import React from 'react';
-import { Timer } from './Timer/Timer.component';
+import { Timer } from './components/Timer/Timer.component';
+import styled from 'styled-components';
 
-function App() {
+const StyledBackground = styled.div`
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+const App = () => {
 	return (
-		<div className="App">
+		<StyledBackground>
 			<Timer />
-		</div>
+		</StyledBackground>
 	);
-}
+};
 
 export default App;
